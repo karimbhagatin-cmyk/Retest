@@ -16,3 +16,11 @@ The uploaded source is committed unchanged as the current baseline. Do not overw
 Mode 7 is labelled “Dhan WebSocket Forward Paper”. Its configuration in the uploaded source sets RSI 5, thresholds 60/40, HMA 4, 5-second signal candles, 2 lots, premium ceiling ₹200, no hard stop or target, trailing activation 5 points with 2-point giveback, ₹50 brokerage per trade, and 3 confirmation ticks. The mode uses Dhan market data and records paper trades; it is not the live-order mode.
 
 The feed-error handling and experiment-stop behaviour have not been changed or certified by this baseline commit. Review and test those separately before relying on a forward run.
+
+
+## Mode 7 tolerance revision and test record
+
+- Revised script: [`bots/latestbot_premium_tolerance.py`](bots/latestbot_premium_tolerance.py)
+- Original baseline remains unchanged: [`bots/latestbot.py`](bots/latestbot.py)
+- Paper test observations: [`tests/2026-11-13_mode7_forward_paper.md`](tests/2026-11-13_mode7_forward_paper.md)
+- Premium ceiling: ₹200 base + ₹5 tolerance (effective maximum ₹205).
