@@ -856,7 +856,7 @@ def run_single_strategy_event_forward(cfg):
                 print(f"{stamp.strftime('%H:%M:%S')} | {name} CE CANDIDATE | RSI {rsi:.1f} HMA {hma['state']} | awaiting {int(cfg.get('confirmation_ticks', 3))} qualifying ticks")
             elif pe_cross and (hma["falling"] if cfg["use_hma"] else True):
                 state["candidate_side"], state["candidate_count"] = "PE", 0
-                print(f"{stamp.strftime('%H:%M:%S')} | {name} PE CANDIDATE | RSI {rsi:.1f} HMA {hma['state']} | awaiting 3 qualifying ticks")
+                print(f"{stamp.strftime('%H:%M:%S')} | {name} PE CANDIDATE | RSI {rsi:.1f} HMA {hma['state']} | awaiting {int(cfg.get('confirmation_ticks', 3))} qualifying ticks")
             elif state["candidate_side"] is not None:
                 state["candidate_side"], state["candidate_count"] = None, 0
         state["prev_rsi"] = rsi
